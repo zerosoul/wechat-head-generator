@@ -1,6 +1,8 @@
 import { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ResizableBox } from 'react-resizable';
+import ImageDrag from '../assets/drag.png';
+import ImageHead from '../assets/head.png';
 const StyledHead = styled.div`
   /* overflow: hidden; */
   width: 6rem;
@@ -12,12 +14,20 @@ const StyledHead = styled.div`
       width: 100%;
     }
     .drag {
+      visibility: hidden;
+      cursor: move;
       position: absolute;
-      right: -10px;
-      top: 0;
-      width: 10px;
-      height: 10px;
-      background: #fff;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      width: 30px;
+      height: 30px;
+      background-image: url(${ImageDrag});
+      background-color: rgba(222, 222, 222, 0.4);
+      border-radius: 50%;
+      background-size: 60%;
+      background-position: center;
+      background-repeat: no-repeat;
     }
   }
   .react-resizable {
@@ -89,9 +99,46 @@ const StyledHead = styled.div`
       visibility: visible;
     }
   }
+
+  .update {
+    visibility: hidden;
+    z-index: 99;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translate3d(-50%, 0, 0);
+    width: 30px;
+    height: 30px;
+    input,
+    .btn {
+      position: absolute;
+    }
+    input {
+      cursor: pointer;
+      opacity: 0;
+      display: block;
+      width: 30px;
+      height: 30px;
+    }
+    .btn {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-image: url(${ImageHead});
+      background-color: rgba(222, 222, 222, 0.4);
+      background-size: 60%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+  &:hover .wrapper .drag,
+  &:hover .wrapper .update {
+    visibility: visible;
+  }
 `;
-import ImageHead from '../assets/head.png';
-export default function Head({ src = ImageHead }) {
+import ImageDefault from '../assets/boss.png';
+export default function Head({ src = ImageDefault }) {
+  const [image, setImage] = useState(src);
   const parentRef = useRef(null);
   const [size, setSize] = useState({ width: 300, height: 300 });
   useEffect(() => {
@@ -108,6 +155,13 @@ export default function Head({ src = ImageHead }) {
   const handleResize = (evt, { size }) => {
     setSize(size);
   };
+  const handleImageChange = ({ target }) => {
+    let [file] = target.files;
+    if (file) {
+      let src = URL.createObjectURL(file);
+      setImage(src);
+    }
+  };
   const { width, height } = size;
   return (
     <StyledHead ref={parentRef} className="head">
@@ -121,8 +175,12 @@ export default function Head({ src = ImageHead }) {
         resizeHandles={['sw', 'se', 'nw', 'ne', 'w', 'e', 'n', 's']}
       >
         <div width={width} height={height} className="wrapper">
-          <img src={src} alt="head" />
-          <button className="drag">拖动</button>
+          <img src={image} alt="head" />
+          <div className="drag"></div>
+          <div className="update">
+            <div className="btn"></div>
+            <input type="file" accept="image/*" onChange={handleImageChange} />
+          </div>
         </div>
       </ResizableBox>
     </StyledHead>

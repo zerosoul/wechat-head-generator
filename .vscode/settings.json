@@ -1,0 +1,8 @@
+{
+    "eslint.packageManager": "yarn",
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        
+    },
+    "editor.formatOnSave": true
+}

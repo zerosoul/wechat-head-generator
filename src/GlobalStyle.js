@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: fill-available;
   }
 #root{
-  background:#333;
+  background:#6fc6c6;
 }
 @media screen and (min-width: 320px){
       html {

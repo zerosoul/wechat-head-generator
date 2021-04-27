@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import BgImage from './assets/bg.png';
+import ImageDownload from './assets/download.png';
+import ImagePic from './assets/image.png';
+import ImageReset from './assets/reset.png';
 const StyledWrapper = styled.section`
   display: flex;
   flex-direction: column;
@@ -17,6 +20,14 @@ const StyledWrapper = styled.section`
     background-image: url(${BgImage});
     background-repeat: no-repeat;
     background-size: contain;
+    border-radius: 10px;
+    background-color: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    &.download {
+      border-radius: 0;
+      background-color: none;
+      box-shadow: none;
+    }
     .logo {
       position: absolute;
       top: 0.36rem;
@@ -75,8 +86,30 @@ const StyledWrapper = styled.section`
     position: fixed;
     right: 0.2rem;
     bottom: 0.2rem;
+
     .btn {
+      cursor: pointer;
+      width: 60px;
+      height: 60px;
+      outline: none;
+      border: none;
       margin-top: 0.2rem;
+      border-radius: 50%;
+      background-size: 60%;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-left: 8px;
+      background-color: #7393ce;
+      box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+      &.generate {
+        background-image: url(${ImagePic});
+      }
+      &.download {
+        background-image: url(${ImageDownload});
+      }
+      &.reset {
+        background-image: url(${ImageReset});
+      }
     }
   }
   .generated {
