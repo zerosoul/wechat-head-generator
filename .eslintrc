@@ -21,7 +21,7 @@
     }
   },
   "globals": {
-    "UE": true
+    "PlainDraggable": true
   },
   "env": {
     "browser": true,

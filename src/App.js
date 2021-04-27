@@ -4,7 +4,7 @@ import html2canvas from 'html2canvas';
 import GlobalStyle from './GlobalStyle';
 import StyledWrapper from './styled';
 import ImageLogo from './assets/logo.png';
-import ImageHead from './assets/head.png';
+import Head from './components/Head';
 export default function App() {
   const box = useRef(null);
   const [png, setPng] = useState(null);
@@ -13,9 +13,9 @@ export default function App() {
   //     let boxEle = box.current;
   //   }
   // }, []);
-  const handleGenerate=()=>{
-    html2canvas( box.current).then(c=>{
-      let src=c.toDataURL("image/png");
+  const handleGenerate = () => {
+    html2canvas(box.current).then((c) => {
+      let src = c.toDataURL('image/png');
       setPng(src);
     });
   };
@@ -28,26 +28,28 @@ export default function App() {
             <img src={ImageLogo} alt="logo" />
           </div>
           <div className="detail">
-            <h1 className="name" contentEditable={true}>杨国亭</h1>
-            <h2 className="title" contentEditable={true}>高级验光师</h2>
+            <h1 className="name" contentEditable={true}>
+              杨国亭
+            </h1>
+            <h2 className="title" contentEditable={true}>
+              高级验光师
+            </h2>
             <a className="mobile" contentEditable={true} href="tel:18201385848">
               18201385848
             </a>
           </div>
-          <div className="head">
-            {/* <Rnd default={{
-                          x: 0,
-                          y: '-100%',
-                        }}> */}
-
-            <img src={ImageHead} alt="head"/>
-            {/* </Rnd> */}
-          </div>
+          <Head />
         </div>
-      <button className="btn" onClick={handleGenerate}>生成图片</button>
-      {png && <div className="generated">
-        <img src={png} alt="generated image"/>
-        </div>}
+        <aside className="btns">
+          <button className="btn" onClick={handleGenerate}>
+            生成图片
+          </button>
+        </aside>
+        {png && (
+          <div className="generated">
+            <img src={png} alt="generated image" />
+          </div>
+        )}
       </StyledWrapper>
     </>
   );
