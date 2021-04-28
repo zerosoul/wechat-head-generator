@@ -99,7 +99,7 @@ const StyledWrapper = styled.section`
       background-position: center;
       background-repeat: no-repeat;
       margin-left: 8px;
-      background-color: #7393ce;
+      background-color: #78ddaa;
       box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
       &.generate {
         background-image: url(${ImagePic});
@@ -113,8 +113,8 @@ const StyledWrapper = styled.section`
     }
   }
   .generated {
-    width: 40rem;
-    height: 40rem;
+    width: 10rem;
+    height: 10rem;
     max-width: 70vw;
     max-height: 70vw;
     img {

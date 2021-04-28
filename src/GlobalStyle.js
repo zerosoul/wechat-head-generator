@@ -50,12 +50,12 @@ const GlobalStyle = createGlobalStyle`
   }
   @media screen and (min-width: 1200px){
       html {
-          font-size: 75px;
+          font-size: 74px;
       }
   }
   @media screen and (min-width: 1400px){
       html {
-          font-size: 80px;
+          font-size: 76px;
       }
   }
   @media screen and (min-width: 1920px){
