@@ -22,7 +22,7 @@ const StyledWrapper = styled.section`
     background-size: contain;
     border-radius: 10px;
     background-color: linear-gradient(145deg, #f0f0f0, #cacaca);
-    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    box-shadow: 20px 20px 60px #79c0e580, -20px -20px 60px #709ecb60;
     &.download {
       border-radius: 0;
       background-color: none;
@@ -100,7 +100,7 @@ const StyledWrapper = styled.section`
       background-repeat: no-repeat;
       margin-left: 8px;
       background-color: #78ddaa;
-      box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+      box-shadow: 10px 10px 60px #79c0e590, -10px -10px 60px #709ecb80;
       &.generate {
         background-image: url(${ImagePic});
       }
