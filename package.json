@@ -74,7 +74,7 @@
   "bugs": {
     "url": "https://github.com/zerosoul/wechat-head-generator/issues"
   },
-  "homepage": "http://works.yangerxiao.com/wechat-head-generator",
+  "homepage": "http://works.yangerxiao.com/chwg",
   "engines": {
     "node": ">=12.0.0",
     "npm": ">=6.0.0"
