@@ -3,6 +3,7 @@ import BgImage from './assets/bg.png';
 import ImageDownload from './assets/download.png';
 import ImagePic from './assets/image.png';
 import ImageReset from './assets/reset.png';
+import Image3D from './assets/3d.png';
 const StyledWrapper = styled.section`
   display: flex;
   flex-direction: column;
@@ -110,6 +111,12 @@ const StyledWrapper = styled.section`
       }
       &.reset {
         background-image: url(${ImageReset});
+      }
+      &.three_d {
+        background-image: url(${Image3D});
+        &.disable{
+          filter: grayscale(1);
+        }
       }
     }
   }
