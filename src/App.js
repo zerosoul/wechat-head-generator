@@ -6,14 +6,30 @@ import GlobalStyle from './GlobalStyle';
 import StyledWrapper from './styled';
 import ImageLogo from './assets/logo.png';
 import Head from './components/Head';
+const THRESHOLD = 50;
+const perferNoMotion = window.matchMedia("(prefers-reduced-motion)").matches;
 export default function App() {
   const box = useRef(null);
   const [png, setPng] = useState(null);
-  // useEffect(() => {
-  //   if (box) {
-  //     let boxEle = box.current;
-  //   }
-  // }, []);
+  const handleHover = (e) => {
+    if (perferNoMotion) return;
+    const card = box.current;
+    const { clientX, clientY, currentTarget } = e;
+    const { clientWidth, clientHeight, offsetLeft, offsetTop } = currentTarget;
+
+    const horizontal = (clientX - offsetLeft) / clientWidth;
+    const vertical = (clientY - offsetTop) / clientHeight;
+    const rotateX = (THRESHOLD / 2 - horizontal * THRESHOLD).toFixed(2);
+    const rotateY = (vertical * THRESHOLD - THRESHOLD / 2).toFixed(2);
+
+    card.style.transform = `perspective(${clientWidth}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg) scale3d(1, 1, 1)`;
+  };
+
+  const resetStyles = (e) => {
+    if (perferNoMotion) return;
+    const card = box.current;
+    card.style.transform = `perspective(${e.currentTarget.clientWidth}px) rotateX(0deg) rotateY(0deg)`;
+  };
   const handleGenerate = () => {
     let boxEle = box.current;
     html2canvas(boxEle, {
@@ -53,7 +69,7 @@ export default function App() {
             <img src={png} alt="generated image" />
           </div>
         ) : (
-          <div className="box" ref={box}>
+          <div className="box" ref={box} onMouseMove={handleHover} onMouseLeave={resetStyles}>
             <div className="logo">
               <img src={ImageLogo} alt="logo" />
             </div>

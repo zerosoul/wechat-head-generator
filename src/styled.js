@@ -23,6 +23,7 @@ const StyledWrapper = styled.section`
     border-radius: 10px;
     background-color: linear-gradient(145deg, #f0f0f0, #cacaca);
     box-shadow: 20px 20px 60px #79c0e580, -20px -20px 60px #709ecb60;
+    transition: transform .2s linear;
     &.download {
       border-radius: 0;
       background-color: none;
