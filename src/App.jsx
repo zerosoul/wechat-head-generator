@@ -1,12 +1,11 @@
 import { useRef, useState } from 'react';
-// import {Rnd} from 'react-rnd';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 import GlobalStyle from './GlobalStyle';
 import StyledWrapper from './styled';
 import ImageLogo from './assets/logo.png';
 import Head from './components/Head';
-const THRESHOLD = 40;
+const THRESHOLD = 10;
 const perferNoMotion = window.matchMedia("(prefers-reduced-motion)").matches;
 export default function App() {
   const box = useRef(null);

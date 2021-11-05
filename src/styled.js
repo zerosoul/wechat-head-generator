@@ -37,6 +37,7 @@ const StyledWrapper = styled.section`
       transform: translateX(-50%);
       width: 8.88rem;
       img {
+        -webkit-user-drag: none;
         width: 100%;
       }
     }

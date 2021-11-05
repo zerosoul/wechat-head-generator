@@ -1,8 +1,9 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { ResizableBox } from 'react-resizable';
-import ImageDrag from '../assets/drag.png';
 import ImageHead from '../assets/head.png';
+
 const StyledHead = styled.div`
   /* overflow: hidden; */
   width: 6rem;
@@ -10,24 +11,11 @@ const StyledHead = styled.div`
   .wrapper {
     position: relative;
     img {
+      user-select: none;
       display: block;
       width: 100%;
-    }
-    .drag {
-      visibility: hidden;
-      cursor: move;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate3d(-50%, -50%, 0);
-      width: 30px;
-      height: 30px;
-      background-image: url(${ImageDrag});
-      background-color: rgba(222, 222, 222, 0.4);
-      border-radius: 50%;
-      background-size: 60%;
-      background-position: center;
-      background-repeat: no-repeat;
+      -webkit-user-drag: none;
+      cursor:move;
     }
   }
   .react-resizable {
@@ -131,7 +119,6 @@ const StyledHead = styled.div`
       background-repeat: no-repeat;
     }
   }
-  &:hover .wrapper .drag,
   &:hover .wrapper .update {
     visibility: visible;
   }
@@ -141,17 +128,6 @@ export default function Head({ src = ImageDefault }) {
   const [image, setImage] = useState(src);
   const parentRef = useRef(null);
   const [size, setSize] = useState({ width: 300, height: 300 });
-  useEffect(() => {
-    if (parentRef) {
-      let containment = parentRef.current;
-      let draggableEle = containment.querySelector('.react-resizable');
-      let handle = containment.querySelector('.drag');
-      new PlainDraggable(draggableEle, {
-        containment,
-        handle
-      });
-    }
-  }, []);
   const handleResize = (evt, { size }) => {
     setSize(size);
   };
@@ -165,24 +141,25 @@ export default function Head({ src = ImageDefault }) {
   const { width, height } = size;
   return (
     <StyledHead ref={parentRef} className="head">
-      <ResizableBox
-        lockAspectRatio={true}
-        width={width}
-        height={height}
-        minConstraints={[150, 150]}
-        maxConstraints={[500, 500]}
-        onResize={handleResize}
-        resizeHandles={['sw', 'se', 'nw', 'ne', 'w', 'e', 'n', 's']}
-      >
-        <div width={width} height={height} className="wrapper">
-          <img src={image} alt="head" />
-          <div className="drag"></div>
-          <div className="update">
-            <div className="btn"></div>
-            <input type="file" accept="image/*" onChange={handleImageChange} />
+      <motion.div drag dragConstraints={parentRef} dragMomentum={false}>
+        <ResizableBox
+          lockAspectRatio={true}
+          width={width}
+          height={height}
+          minConstraints={[150, 150]}
+          maxConstraints={[500, 500]}
+          onResize={handleResize}
+          resizeHandles={['sw', 'se', 'nw', 'ne', 'w', 'e', 'n', 's']}
+        >
+          <div width={width} height={height} className="wrapper">
+            <img src={image} alt="head" />
+            <div className="update">
+              <div className="btn"></div>
+              <input type="file" accept="image/*" onChange={handleImageChange} />
+            </div>
           </div>
-        </div>
-      </ResizableBox>
+        </ResizableBox>
+      </motion.div>
     </StyledHead>
   );
 }
