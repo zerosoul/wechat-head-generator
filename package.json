@@ -1,31 +1,29 @@
 {
   "name": "wechat-head-generator",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "春华眼镜店",
   "main": "index.js",
   "dependencies": {
-    "@vitejs/plugin-react": "^1.0.7",
+    "@vitejs/plugin-react": "^2.1.0",
     "file-saver": "^2.0.5",
-    "framer-motion": "^5.2.0",
-    "fs-extra": "^10.0.0",
-    "html2canvas": "^1.3.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "framer-motion": "^7.6.1",
+    "fs-extra": "^10.1.0",
+    "html2canvas": "^1.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-resizable": "^3.0.4",
-    "styled-components": "^5.3.3",
-    "styled-reset": "^4.3.4"
+    "styled-components": "^5.3.6",
+    "styled-reset": "^4.4.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^14.1.0",
-    "@commitlint/config-conventional": "^14.1.0",
-    "eslint": "^8.1.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^11.2.6",
-    "prettier": "^2.4.1",
-    "vite": "^2.6.13"
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "vite": "^3.1.8"
   },
   "repository": {
     "type": "git",
