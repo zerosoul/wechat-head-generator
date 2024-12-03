@@ -6,7 +6,7 @@ import StyledWrapper from './styled';
 import ImageLogo from './assets/logo.png';
 import Head from './components/Head';
 const THRESHOLD = 10;
-const perferNoMotion = window.matchMedia("(prefers-reduced-motion)").matches;
+const perferNoMotion = window.matchMedia('(prefers-reduced-motion)').matches;
 export default function App() {
   const box = useRef(null);
   const [png, setPng] = useState(null);
@@ -49,7 +49,7 @@ export default function App() {
     setPng(null);
   };
   const toggle3D = () => {
-    setEnable3D(prev => !prev);
+    setEnable3D((prev) => !prev);
   };
   const enableMouseHover = !perferNoMotion && enable3D;
   return (
@@ -64,7 +64,10 @@ export default function App() {
             </>
           ) : (
             <>
-              <button className={`btn three_d ${enable3D ? '' : 'disable'}`} onClick={toggle3D}></button>
+              <button
+                className={`btn three_d ${enable3D ? '' : 'disable'}`}
+                onClick={toggle3D}
+              ></button>
               <button className="btn generate" onClick={handleGenerate}></button>
             </>
           )}
@@ -74,13 +77,18 @@ export default function App() {
             <img src={png} alt="generated image" />
           </div>
         ) : (
-          <div className="box" ref={box} onMouseMove={enableMouseHover ? handleHover : null} onMouseLeave={enableMouseHover ? resetStyles : null}>
+          <div
+            className="box"
+            ref={box}
+            onMouseMove={enableMouseHover ? handleHover : null}
+            onMouseLeave={enableMouseHover ? resetStyles : null}
+          >
             <div className="logo">
               <img src={ImageLogo} alt="logo" />
             </div>
             <div className="detail">
               <h1 className="name" contentEditable={true}>
-                杨国亭
+                王淑芬
               </h1>
               <h2 className="title" contentEditable={true}>
                 高级验光师
