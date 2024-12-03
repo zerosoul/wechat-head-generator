@@ -15,7 +15,7 @@ const StyledHead = styled.div`
       display: block;
       width: 100%;
       -webkit-user-drag: none;
-      cursor:move;
+      cursor: move;
     }
   }
   .react-resizable {
@@ -123,7 +123,7 @@ const StyledHead = styled.div`
     visibility: visible;
   }
 `;
-import ImageDefault from '../assets/boss.png';
+import ImageDefault from '../assets/demo.png';
 export default function Head({ src = ImageDefault }) {
   const [image, setImage] = useState(src);
   const parentRef = useRef(null);
