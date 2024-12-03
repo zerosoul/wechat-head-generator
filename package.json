@@ -1,0 +1,67 @@
+{
+  "name": "wechat-head-generator",
+  "version": "2.1.0",
+  "description": "春华眼镜店",
+  "main": "index.js",
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "file-saver": "^2.0.5",
+    "framer-motion": "^11.12.0",
+    "fs-extra": "^11.2.0",
+    "html2canvas": "^1.4.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-resizable": "^3.0.5",
+    "styled-components": "^6.1.13",
+    "styled-reset": "^4.5.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "vite": "^6.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zerosoul/wechat-head-generator.git"
+  },
+  "keywords": [
+    "wechat",
+    "react",
+    "frontend",
+    "tool",
+    "amazing"
+  ],
+  "author": "Tristan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zerosoul/wechat-head-generator/issues"
+  },
+  "homepage": "http://chwg.yangerxiao.com/",
+  "engines": {
+    "node": ">=15.0.0",
+    "npm": ">=7.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "prepare": "husky install"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
